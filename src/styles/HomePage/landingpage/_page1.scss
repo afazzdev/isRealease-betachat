@@ -1,0 +1,78 @@
+.page1 {
+  width: 100%;
+  height: 100%;
+  // background: #2f3760;
+  background: url(../../../containers/LandingPage/svgs/bgpage1.svg) no-repeat;
+  background-position: 0 -150px;
+  background-size: cover;
+  // background-attachment: fixed;
+  position: absolute;
+  z-index: 11;
+  display: grid;
+  // place-items: center;
+  .h1 {
+    font-display: swap;
+    font-style: normal italic;
+    font-weight: 100 900;
+    font-size: 3rem;
+    width: 16rem;
+    line-height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -130%);
+    div {
+      font-family: "Poppins", sans-serif;
+      &:nth-child(1) {
+        font-size: 0.98em;
+      }
+      &:nth-child(2) {
+        font-size: 1.2em;
+      }
+      &:nth-child(3) {
+        font-size: 1.02em;
+      }
+
+      svg.navslant-logo {
+        width: 100%;
+        height: 100%;
+        path {
+          &:nth-child(1) {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: b-anim 2s ease forwards 1s;
+          }
+          &:nth-child(2) {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: line-anim 2s ease forwards 1.3s;
+          }
+          &:nth-child(3) {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: line-anim 2s ease forwards 1.6s;
+          }
+          &:nth-child(4) {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: line-anim 2s ease forwards 1.9s;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes b-anim {
+  to {
+    stroke-dasharray: 30;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes line-anim {
+  to {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+  }
+}

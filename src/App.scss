@@ -1,0 +1,28 @@
+@import "./styles/scaffoldings";
+
+@import "./containers/MainWindow/MainWindow";
+@import "./containers/Sidebar/Sidebar";
+
+@import "./components/Badge/Badge";
+@import "./components/Button/Button";
+@import "./components/Contact/Contact";
+@import "./components/ContactWindow/ContactWindow";
+@import "./components/Input/Input";
+@import "./components/InputWindow/InputWindow";
+@import "./components/MessageBox/MessageBox";
+@import "./components/MessageWindow/MessageWindow";
+@import "./components/WindowTopBar/WindowTopBar";
+@import "./components/TabMenu/Tabmenu";
+@import "./styles/HomePage/index";
+
+.app {
+  width: $baseline * 55;
+  height: 95%;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  overflow: hidden;
+}

@@ -1,0 +1,53 @@
+.input-group {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .input-label {
+    color: #ebebeb;
+  }
+  .input-text {
+    background: transparent;
+    outline: none;
+    border: none;
+    height: 2rem;
+    border-radius: 4px;
+    padding: 0 4px;
+    color: #2f3760;
+    transition: background ease 0.2s;
+    margin: 5px;
+    &:focus,
+    &:hover,
+    &:not(:placeholder-shown) {
+      background: #ebebeb;
+    }
+  }
+  textarea.input-text {
+    height: 5rem;
+    width: 100%;
+  }
+  .input-button {
+    background: #2f3760;
+    color: #ebebeb;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background ease-in-out 0.2s;
+    outline: none;
+    &:hover {
+      background: #ebebeb;
+      color: #2f3760;
+      cursor: pointer;
+    }
+  }
+  .input-error {
+    color: red;
+  }
+  .hidden-button {
+    position: absolute;
+    transform: translate(-50%, 0px);
+    height: 2rem;
+    border-radius: 0 5px 5px 0;
+  }
+}

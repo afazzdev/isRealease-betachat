@@ -1,0 +1,91 @@
+.containerland {
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
+  .containerpage {
+    width: 100vw;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    &:nth-child(1) {
+      // filter: drop-shadow(0px 9px 6px rgba(131, 131, 131, 0.5));
+      z-index: 1000;
+      // margin-bottom: -10vw;
+      position: relative;
+      height: 1024px;
+    }
+    &:nth-child(2) {
+      height: 100vh;
+      position: relative;
+      // margin-bottom: -10vw;
+      // z-index: 10;
+      // filter: drop-shadow(0px 9px 6px rgba(136, 136, 136, 0.5));
+    }
+    &:nth-child(3) {
+      height: 1024px;
+
+      // clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
+      position: relative;
+      // margin-bottom: -10vw;
+
+      // filter: drop-shadow(0px 9px 6px rgba(136, 136, 136, 0.5));
+      z-index: 9;
+    }
+    &:nth-child(4) {
+      height: calc(300px + 60vh);
+      // background: #d2d2d2;
+      // clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
+      position: relative;
+      // margin-bottom: -10vw;
+      z-index: 8;
+      // filter: drop-shadow(0px 9px 6px rgba(255, 255, 255, 0.5));
+      overflow: hidden;
+    }
+  }
+  .tiga {
+    background: url(../../containers/LandingPage/svgs/bgpage3.svg) no-repeat;
+    background-size: conver;
+    background-position: center;
+  }
+  .empat {
+    background: url(../../containers/LandingPage/svgs/bgpage4.svg) no-repeat;
+    background-position: center bottom;
+  }
+  .footer {
+    height: 3rem;
+    background: #1d1d1d;
+    display: grid;
+    place-items: flex-end center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .containerland {
+    .containerpage {
+      &:nth-child(1) {
+        background-size: cover;
+      }
+      &:nth-child(3) {
+        background-size: cover;
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  border: 3px solid #2f3760;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.432);
+  background: #d2d2d2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2f3760;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.432);
+  border-radius: 3px;
+}
