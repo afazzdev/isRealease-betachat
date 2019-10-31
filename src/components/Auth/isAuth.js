@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { isMobileOnly } from "react-device-detect";
+import { isMobile } from "react-device-detect";
 
 const AuthPage = OriginalComponent => {
   class NewComp extends React.Component {
@@ -8,7 +8,7 @@ const AuthPage = OriginalComponent => {
     //WARNING! To be deprecated in React v17. Use componentDidMount instead.
     UNSAFE_componentWillMount() {
       const { history, location } = this.props;
-      if (isMobileOnly && location.pathname !== "/register") {
+      if (isMobile && location.pathname !== "/register") {
         history.push("/");
       } else if (
         !localStorage.getItem("token") &&

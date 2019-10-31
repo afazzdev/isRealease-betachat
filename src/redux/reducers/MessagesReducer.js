@@ -6,7 +6,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case "INITIAL_CHAT":
-      return action.payload;
+      return { chat: action.payload };
 
     case "CREATE_NEW_CHAT":
       return {

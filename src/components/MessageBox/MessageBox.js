@@ -26,16 +26,6 @@ const MessageBox = props => {
         props.sender === myId || isEqual() ? "message-box--from-me" : ""
       } `}
     >
-      {console.log(
-        "my id : ",
-        myId,
-        "my id 2 :",
-        myId2,
-        "isEqual : ",
-        isEqual(),
-        " props sender : ",
-        props.sender
-      )}
       <div className="message-box__body">
         <div className="message-box__content">
           <div>

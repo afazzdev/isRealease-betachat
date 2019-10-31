@@ -3,27 +3,39 @@ import Axios from "axios";
 import { API } from "../../helpers/ApiHelper";
 
 export const initialMsg = data => dispatch => {
-  // const idUser = JSON.parse(localStorage.getItem("reduxState")).loginData.data
-  //   .id;
   Axios.get(`https://rocky-sierra-75836.herokuapp.com/user/${data}`)
     .then(res => {
-      // const datares = {
-      //   id: res.data.id,
-      //   no_detail_chat: res.data.no_detail_chat,
-      //   id_user1: res.data.id_user1,
-      //   id_user2: res.data.id_user2,
-      //   created_at: res.data.created_at,
-      //   updated_at: res.data.updated_at,
-      //   username: res.data.username,
-      //   bio: res.data.bio,
-      //   phone: res.data.phone,
-      //   lawan: res.data.lawan
-      // };
       dispatch({
         type: "INITIAL_CHAT",
-        payload: res.data
+        payload: res.data.chat.map(rest => ({
+          id: rest.id,
+          no_detail_chat: rest.no_detail_chat,
+          id_user1: rest.id_user1,
+          id_user2: rest.id_user2,
+          created_at: rest.created_at,
+          updated_at: rest.updated_at,
+          username: rest.username,
+          bio: rest.bio,
+          phone: rest.phone,
+          lawan: rest.lawan,
+          photo: rest.photo
+        }))
       });
-      console.log("initial data", res.data);
+      console.log(
+        "initial data",
+        res.data.chat.map(rest => ({
+          id: rest.id,
+          no_detail_chat: rest.no_detail_chat,
+          id_user1: rest.id_user1,
+          id_user2: rest.id_user2,
+          created_at: rest.created_at,
+          updated_at: rest.updated_at,
+          username: rest.username,
+          bio: rest.bio,
+          phone: rest.phone,
+          lawan: rest.lawan
+        }))
+      );
     })
     .catch(err => console.log(err));
 };

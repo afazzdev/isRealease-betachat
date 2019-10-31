@@ -22,7 +22,7 @@ const ContactWindow = props => {
 
   const handleSubmit = () => {
     dispatch(searchContact(dataSearch));
-    console.log(dataSearch);
+    console.log("data search: ", dataSearch);
   };
 
   return (
