@@ -22,7 +22,7 @@ const ContactWindow = props => {
 
   const handleSubmit = () => {
     dispatch(searchContact(dataSearch));
-    console.log("data search: ", dataSearch);
+    // console.log("data search: ", dataSearch);
   };
 
   return (
@@ -41,25 +41,31 @@ const ContactWindow = props => {
       </div>
       <div className="contact-window">
         {console.log(resSearch)}
-        {resSearch
-          ? resSearch.search.map((contact, index) => (
-              <>
-                <Contact
-                  key={`contact-${contact.id}`}
-                  onClick={() => {
-                    dispatch(createNewChat(resSearch.search[index]));
-                    props.history.push("/");
-                  }}
-                  image={contact.photo}
-                  title={contact.username}
-                  meta={contact.phone}
-                  date={contact.updated_at}
-                  active={props.activeContactId === contact.id ? true : false}
-                />
-                {console.log("contact", resSearch.search[index])}
-              </>
-            ))
-          : ""}
+        {resSearch.searching === true ? (
+          <div className="input-group">
+            <div className="input-label">Searching...</div>
+          </div>
+        ) : resSearch.search ? (
+          resSearch.search.map((contact, index) => (
+            <>
+              <Contact
+                key={`contact-${contact.id}`}
+                onClick={() => {
+                  dispatch(createNewChat(resSearch.search[index]));
+                  props.history.push("/");
+                }}
+                image={contact.photo}
+                title={contact.username}
+                meta={contact.phone}
+                date={contact.updated_at}
+                active={props.activeContactId === contact.id ? true : false}
+              />
+              {/* {console.log("contact", resSearch.search[index])} */}
+            </>
+          ))
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

@@ -4,13 +4,12 @@ import { createLogger } from "redux-logger";
 import messagesReducer from "./redux/reducers/MessagesReducer";
 import loginReducer from "./redux/reducers/LoginReducer";
 import thunk from "redux-thunk";
-import activeMsgReducer from "./redux/reducers/activeMsgReducer";
 import searchReducer from "./redux/reducers/searchReducer";
 
 const createRootReducers = combineReducers({
   messages: messagesReducer,
   loginData: loginReducer,
-  activeMsg: activeMsgReducer,
+
   resSearch: searchReducer
 });
 

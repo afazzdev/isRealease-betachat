@@ -27,9 +27,13 @@ const MessageBox = props => {
       } `}
     >
       <div className="message-box__body">
+        <div className="message-box__meta">
+          {props.meta && props.meta}
+          {props.date && <div className="message-box__date">{props.date}</div>}
+        </div>
         <div className="message-box__content">
           <div>
-            {props.children}
+            {props.chat}
             <br />
           </div>
         </div>

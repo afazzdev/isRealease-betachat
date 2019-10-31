@@ -67,7 +67,7 @@ class MainWindow extends Component {
     }
   };
 
-  componentDidMount() {
+  UNSAFE_componentWillMount() {
     this.setState({ name: this.props.activeReceiverUsername });
     this.props.initialMsg(this.state.sender);
     // console.log("snder: ", this.state.sender);

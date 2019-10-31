@@ -11,15 +11,18 @@
     outline: none;
     border: none;
     height: 2rem;
-    border-radius: 4px;
+
     padding: 0 4px;
     color: #ebebeb;
     transition: background ease 0.2s;
     margin: 5px;
     border-bottom: 2px solid #ebebeb;
-    &:focus {
+    &:focus,
+    &:hover,
+    &:not(:placeholder-shown) {
       background: #ebebeb;
       color: #2f3760;
+      border-radius: 4px;
     }
   }
 

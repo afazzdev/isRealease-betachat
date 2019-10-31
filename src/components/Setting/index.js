@@ -98,7 +98,7 @@ class Setting extends React.Component {
                   accept="image/png, image/jpeg"
                   onChange={handleChange}
                 />
-                <label htmlFor="avatar" className="profile-text">
+                <label htmlFor="avatar" className="profile-label">
                   Choose a photo
                 </label>
               </div>

@@ -14,9 +14,12 @@ const MessageWindow = props => {
     <div className="message-window">
       {detailChat
         ? listReceiver.detailChat.map((message, i) => (
-            <MessageBox sender={message.sender} key={i} index={i}>
-              {message.chat}
-            </MessageBox>
+            <MessageBox
+              sender={message.sender}
+              key={i}
+              index={i}
+              chat={message.chat}
+            />
           ))
         : ""}
       {/* {console.log("receiver :", receiver[props.idReceiver])} */}

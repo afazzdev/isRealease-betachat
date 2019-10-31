@@ -1,6 +1,7 @@
 import Axios from "axios";
 
 export const searchContact = data => dispatch => {
+  dispatch({ type: "SEARCHING_CONTACT" });
   Axios.post("http://rocky-sierra-75836.herokuapp.com/api/search/user", {
     username: data
   })
