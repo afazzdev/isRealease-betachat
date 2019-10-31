@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import CreatingNewAccount from "../../containers/LandingPage/creatingNewAccount";
 import { API } from "../../helpers/ApiHelper";
+import ReactCodeinput from "react-code-input";
 
 class RegisterPage extends Component {
   constructor(props) {
@@ -25,6 +26,10 @@ class RegisterPage extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  handleChangePin = e => {
+    this.setState({ password: e });
+  };
+
   handleSubmit = e => {
     this.setState({ errors: "", isLoading: true });
     e.preventDefault();
@@ -34,6 +39,7 @@ class RegisterPage extends Component {
       password: this.state.password,
       phone: this.state.phone
     };
+    console.log(dataInput);
 
     axios
       .post(`${API}/register`, dataInput)
@@ -72,8 +78,40 @@ class RegisterPage extends Component {
   };
 
   render() {
-    const { isLoading } = this.state;
+    const { isLoading, password, type } = this.state;
+    const props = {
+      inputStyle: {
+        fontFamily: "monospace",
+        margin: "4px",
+        MozAppearance: "textfield",
+        width: "1.5rem",
+        borderRadius: "4px",
+        fontSize: "14px",
+        height: "1.5rem",
+        textAlign: "center",
+        color: "#2F3760",
+        border: "1px solid #ebebeb"
+      },
+      inputStyleInvalid: {
+        fontFamily: "monospace",
+        margin: "4px",
+        MozAppearance: "textfield",
+        width: "1.5rem",
+        borderRadius: "4px",
+        fontSize: "14px",
+        height: "1.5rem",
+        textAlign: "center",
+        color: "red",
+        border: "1px solid #ebebeb"
+      }
+    };
 
+    const dataInput = {
+      username: this.state.username,
+      password: this.state.password,
+      phone: this.state.phone
+    };
+    const object1 = Object.values(dataInput);
     return (
       <>
         {isLoading ? (
@@ -99,7 +137,7 @@ class RegisterPage extends Component {
             />
             <TextField
               label="Phone"
-              type="text"
+              type="number"
               field="phone"
               className="input-text"
               errors={this.state.errors}
@@ -108,23 +146,32 @@ class RegisterPage extends Component {
               placeholder="Type your phone here"
               value={this.state.phone}
             />
-            <TextField
-              label="Password"
-              type={this.state.type}
-              field="password"
-              className="input-text"
-              errors={this.state.errors}
-              empty={this.state.empty}
-              onChange={this.onChange}
-              placeholder="Type your password here"
-              onHide={this.onHide}
-              hidden={this.state.hidden}
-              onKeyPress={this.handleKeyPress}
-              value={this.state.password}
-            />
+            <span className="input-group">
+              <span className="input-label">Password</span>
+              <span className="input-label">(only accept number)</span>
+            </span>
+            <div className="profile-group">
+              <ReactCodeinput
+                fields={6}
+                type={type}
+                pattern="[0-9]+"
+                value={password}
+                name="password"
+                onChange={this.handleChangePin}
+                autoFocus={false}
+                title="Only number!"
+                {...props}
+              />
+            </div>
+
             <div className="input-group">
               <button
-                disabled={isLoading}
+                disabled={
+                  !this.state.username ||
+                  !this.state.password ||
+                  !this.state.phone ||
+                  isLoading
+                }
                 className="input-button"
                 type="submit"
               >

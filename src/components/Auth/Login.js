@@ -7,6 +7,8 @@ import SigningIn from "../../containers/LandingPage/signingin";
 import { connect } from "react-redux";
 import { login } from "../../redux/actions/LoginAction";
 
+import ReactCodeinput from "react-code-input";
+
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
@@ -35,6 +37,11 @@ class LoginPage extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  onChangePin = e => {
+    this.setState({ password: e.toLowerCase() });
+    console.log(this.state.password);
+  };
+
   onHide = e => {
     e.preventDefault();
     const { type } = this.state;
@@ -52,9 +59,42 @@ class LoginPage extends React.Component {
     }
   };
 
+  handleChangePin = e => {
+    this.setState({ password: e });
+    console.log(this.state.password);
+  };
+
   render() {
-    const { empty, hidden, type } = this.state;
+    const { empty, type, password } = this.state;
     const { isLoading, errors } = this.props;
+
+    const props = {
+      inputStyle: {
+        fontFamily: "monospace",
+        margin: "4px",
+        MozAppearance: "textfield",
+        width: "1.5rem",
+        borderRadius: "4px",
+        fontSize: "14px",
+        height: "1.5rem",
+        textAlign: "center",
+        color: "#2F3760",
+        border: "1px solid #ebebeb"
+      },
+      inputStyleInvalid: {
+        fontFamily: "monospace",
+        margin: "4px",
+        MozAppearance: "textfield",
+        width: "1.5rem",
+        borderRadius: "4px",
+        fontSize: "14px",
+        height: "1.5rem",
+        textAlign: "center",
+        color: "red",
+        border: "1px solid #ebebeb"
+      }
+    };
+
     return (
       <>
         {localStorage.getItem("token") ? (
@@ -70,7 +110,7 @@ class LoginPage extends React.Component {
             </span>
             <TextField
               label="Phone"
-              type="text"
+              type="number"
               field="phone"
               className="input-text"
               onChange={this.onChange}
@@ -80,24 +120,29 @@ class LoginPage extends React.Component {
               autoFocus={true}
               value={this.state.phone}
             />
-            <TextField
-              label="Password"
-              type={type}
-              field="password"
-              className="input-text"
-              onChange={this.onChange}
-              errors={errors}
-              empty={empty}
-              placeholder="Type your password here"
-              onHide={this.onHide}
-              hidden={hidden}
-              onKeyPress={this.handleKeyPress}
-              value={this.state.password}
-            />
+            <span className="input-group">
+              <span className="input-label">Password</span>
+              <span className="input-label">(only accept number)</span>
+            </span>
+            <div className="profile-group">
+              <ReactCodeinput
+                fields={6}
+                type={type}
+                pattern="[0-9]+"
+                value={password}
+                name="password"
+                onChange={this.handleChangePin}
+                autoFocus={false}
+                title="Only number!"
+                {...props}
+              />
+            </div>
 
             <div className="input-group">
               <button
-                disabled={isLoading}
+                disabled={
+                  !this.state.password || !this.state.phone || isLoading
+                }
                 className="input-button"
                 type="submit"
               >

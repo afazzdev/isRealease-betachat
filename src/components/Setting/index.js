@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { update } from "../../redux/actions/UpdateProfileAction";
 
+import ReactCodeinput from "react-code-input";
+
 class Setting extends React.Component {
   state = {
     id: this.props.data.id,
@@ -69,6 +71,11 @@ class Setting extends React.Component {
       this.setState({ [e.target.name]: e.target.value });
     };
 
+    const handleChangePin = e => {
+      this.setState({ password: e.toLowerCase() });
+      console.log(this.state.password);
+    };
+
     const onHide = e => {
       e.preventDefault();
 
@@ -76,6 +83,33 @@ class Setting extends React.Component {
         this.setState({ hidden: "fa-eye", type: "text" });
       } else {
         this.setState({ hidden: "fa-eye-slash", type: "password" });
+      }
+    };
+
+    const props = {
+      inputStyle: {
+        fontFamily: "monospace",
+        margin: "4px",
+        MozAppearance: "textfield",
+        width: "1.5rem",
+        borderRadius: "4px",
+        fontSize: "14px",
+        height: "1.5rem",
+        textAlign: "center",
+        color: "#2F3760",
+        border: "1px solid #ebebeb"
+      },
+      inputStyleInvalid: {
+        fontFamily: "monospace",
+        margin: "4px",
+        MozAppearance: "textfield",
+        width: "1.5rem",
+        borderRadius: "4px",
+        fontSize: "14px",
+        height: "1.5rem",
+        textAlign: "center",
+        color: "red",
+        border: "1px solid #ebebeb"
       }
     };
 
@@ -98,7 +132,7 @@ class Setting extends React.Component {
                   accept="image/png, image/jpeg"
                   onChange={handleChange}
                 />
-                <label htmlFor="avatar" className="profile-label">
+                <label htmlFor="avatar" className="profile-button">
                   Choose a photo
                 </label>
               </div>
@@ -128,13 +162,14 @@ class Setting extends React.Component {
           </div>
           <div className="profile-label">Password</div>
           <div className="profile-group">
-            <input
+            <ReactCodeinput
+              fields={6}
               type={type}
-              className="profile-text"
               value={password}
               name="password"
-              onChange={handleChange}
+              onChange={handleChangePin}
               disabled={!editable}
+              {...props}
             />
             {editable && (
               <button

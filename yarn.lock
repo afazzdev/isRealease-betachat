@@ -2656,6 +2656,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.5:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
+
 clean-css@4.2.x:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.1.tgz#2d411ef76b8569b6d0c84068dabe85b0aa5e5c17"
@@ -8883,6 +8888,15 @@ react-app-polyfill@^1.0.2:
     regenerator-runtime "0.13.3"
     whatwg-fetch "3.0.0"
 
+react-code-input@^3.8.1:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/react-code-input/-/react-code-input-3.8.1.tgz#8700cb809d4768d76ca50e7d990d0e548f0e6ee3"
+  integrity sha512-pFrPqcRoJj/Aao2PFrnH9lKquSp52K7QIc+6Pft8xloEidjOvhWB4RjmJvoBmkkkiBHEuicHxu+zyFbFKt27uQ==
+  dependencies:
+    classnames "^2.2.5"
+    react "^16.3.2"
+    react-dom "^16.3.2"
+
 react-dev-utils@^9.0.3:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-9.1.0.tgz#3ad2bb8848a32319d760d0a84c56c14bdaae5e81"
@@ -8921,7 +8935,7 @@ react-device-detect@^1.9.10:
   dependencies:
     ua-parser-js "^0.7.20"
 
-react-dom@^16.9.0:
+react-dom@^16.3.2, react-dom@^16.9.0:
   version "16.11.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.11.0.tgz#7e7c4a5a85a569d565c2462f5d345da2dd849af5"
   integrity sha512-nrRyIUE1e7j8PaXSPtyRKtz+2y9ubW/ghNgqKFHHAHaeP0fpF5uXR+sq8IMRHC+ZUxw7W9NyCDTBtwWxvkb0iA==
@@ -9053,7 +9067,7 @@ react-test-renderer@^16.0.0-0:
     react-is "^16.8.6"
     scheduler "^0.17.0"
 
-react@^16.9.0:
+react@^16.3.2, react@^16.9.0:
   version "16.11.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.11.0.tgz#d294545fe62299ccee83363599bf904e4a07fdbb"
   integrity sha512-M5Y8yITaLmU0ynd0r1Yvfq98Rmll6q8AxaEe88c8e7LxO8fZ2cNgmFt0aGAS9wzf1Ao32NKXtCl+/tVVtkxq6g==

@@ -21,6 +21,13 @@
     &:not(:placeholder-shown) {
       background: #ebebeb;
     }
+    &[type="number"]::-webkit-inner-spin-button,
+    &[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0;
+    }
   }
   textarea.input-text {
     height: 5rem;

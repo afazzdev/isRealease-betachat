@@ -1,24 +1,72 @@
 import Axios from "axios";
 import { API } from "../../helpers/ApiHelper";
 
-export const update = data => {
-  return function(dispatch) {
-    Axios.post(`${API}/update`, data)
-      .then(res => {
-        const token = res.data.access_token;
-        localStorage.setItem("token", token);
-        dispatch({
-          type: "UPDATE_ACCOUNT",
-          payload: res.data.detail_user
-        });
-        console.log(res);
-      })
-      .catch(err => {
-        dispatch({
-          type: "ERROR_UPDATE",
-          payload: "error"
-        });
-        console.log(err);
+export const update = data => dispatch => {
+  //update username & phone
+  Axios.put(`${API}/update`, {
+    id: data.id,
+    username: data.username,
+    phone: data.phone
+  })
+    .then(res => {
+      const token = res.data.access_token;
+      localStorage.setItem("token", token);
+      dispatch({
+        type: "UPDATE_ACCOUNT",
+        payload: res.data.detail_user
       });
-  };
+      console.log(res);
+    })
+    .catch(err => {
+      dispatch({
+        type: "ERROR_UPDATE",
+        payload: "error"
+      });
+      console.log("Update username and phone: ", err);
+    });
+
+  //update password
+  Axios.put(`${API}/update/password`, {
+    id: data.id,
+    password: data.password,
+    phone: data.phone
+  })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log("Update password: ", err);
+    });
+
+  // update photo
+  Axios.put(`${API}/update/photo`, {
+    id: data.id,
+    photo: data.photo,
+    phone: data.phone
+  })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log("Update photo error: ", err);
+    });
+
+  // // update bio
+  // Axios.put(`${API}/update/bio`, data)
+  // .then(res => {
+  //   const token = res.data.access_token;
+  //   localStorage.setItem("token", token);
+  //   dispatch({
+  //     type: "UPDATE_ACCOUNT",
+  //     payload: res.data.detail_user
+  //   });
+  //   console.log(res);
+  // })
+  // .catch(err => {
+  //   dispatch({
+  //     type: "ERROR_UPDATE",
+  //     payload: "error"
+  //   });
+  //   console.log(err);
+  // });
 };
