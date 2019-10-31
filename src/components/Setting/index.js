@@ -6,18 +6,24 @@ import { update } from "../../redux/actions/UpdateProfileAction";
 
 import ReactCodeinput from "react-code-input";
 
+import FileBase64 from "react-file-base64";
+
 class Setting extends React.Component {
   state = {
     id: this.props.data.id,
     username: this.props.data.username,
     phone: this.props.data.phone,
     photo: this.props.data.photo,
-    password: "password",
+    password: "",
     editable: false,
     hidden: "fa-eye-slash",
     type: "password",
-    avatar: []
+    files: []
   };
+
+  componentDidUpdate() {
+    document.getElementsByTagName("input")[0].setAttribute("id", "files");
+  }
 
   render() {
     const {
@@ -29,7 +35,7 @@ class Setting extends React.Component {
       password,
       hidden,
       type,
-      avatar
+      files
     } = this.state;
 
     const handleLogout = () => {
@@ -53,7 +59,7 @@ class Setting extends React.Component {
         username: username,
         phone: phone,
         password: password,
-        photo: avatar.length === 0 ? this.props.data.photo : avatar
+        photo: files.length === 0 ? this.props.data.photo : files
       };
       console.log(updatedData);
       this.props.update(updatedData);
@@ -74,6 +80,10 @@ class Setting extends React.Component {
     const handleChangePin = e => {
       this.setState({ password: e.toLowerCase() });
       console.log(this.state.password);
+    };
+
+    const getFiles = files => {
+      this.setState({ files: files.base64 });
     };
 
     const onHide = e => {
@@ -124,15 +134,24 @@ class Setting extends React.Component {
             />
             {editable && (
               <div className="profile-group">
-                <input
+                {/* <input
                   className="profile-button"
                   type="file"
-                  id="avatar"
-                  name="avatar"
+                  id="files"
+                  name="files"
                   accept="image/png, image/jpeg"
                   onChange={handleChange}
+                />{" "} */}
+                <FileBase64
+                  multiple={false}
+                  onDone={getFiles}
+                  className="profile-button"
+                  type="file"
+                  id="files"
+                  name="files"
                 />
-                <label htmlFor="avatar" className="profile-button">
+                {console.log("files:", files)}
+                <label htmlFor="files" className="profile-button">
                   Choose a photo
                 </label>
               </div>

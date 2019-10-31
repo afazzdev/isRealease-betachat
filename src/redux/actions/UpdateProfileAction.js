@@ -32,6 +32,12 @@ export const update = data => dispatch => {
     phone: data.phone
   })
     .then(res => {
+      const token = res.data.access_token;
+      localStorage.setItem("token", token);
+      dispatch({
+        type: "UPDATE_ACCOUNT",
+        payload: res.data.detail_user
+      });
       console.log(res);
     })
     .catch(err => {
@@ -45,6 +51,12 @@ export const update = data => dispatch => {
     phone: data.phone
   })
     .then(res => {
+      const token = res.data.access_token;
+      localStorage.setItem("token", token);
+      dispatch({
+        type: "UPDATE_ACCOUNT",
+        payload: res.data.detail_user
+      });
       console.log(res);
     })
     .catch(err => {

@@ -9,39 +9,24 @@ const Page4 = () => {
         </div>
         <div className="dev-cards">
           <div className="dev-card">
-            <h2>Title</h2>
-            <p>
-              this is some article about the devs. their life, their love and
-              their suffer
-            </p>
+            <h2>Muhammad Sidik</h2>
+            <p>"No error no life"</p>
           </div>
           <div className="dev-card">
-            <h2>Title</h2>
-            <p>
-              this is some article about the devs. their life, their love and
-              their suffer
-            </p>
+            <h2>Ibnu Hibban</h2>
+            <p>"Don't smoking"</p>
           </div>
           <div className="dev-card">
-            <h2>Title</h2>
-            <p>
-              this is some article about the devs. their life, their love and
-              their suffer
-            </p>
+            <h2>Syofyan Zuhad</h2>
+            <p>"Source code"</p>
           </div>
           <div className="dev-card">
-            <h2>Title</h2>
-            <p>
-              this is some article about the devs. their life, their love and
-              their suffer
-            </p>
+            <h2>Andri</h2>
+            <p>~none</p>
           </div>
           <div className="dev-card">
-            <h2>Title</h2>
-            <p>
-              this is some article about the devs. their life, their love and
-              their suffer
-            </p>
+            <h2>Ahmad Faizi</h2>
+            <p>"Coding? what's that?"</p>
           </div>
         </div>
       </div>
