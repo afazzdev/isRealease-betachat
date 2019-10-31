@@ -13,17 +13,19 @@ const createRootReducers = combineReducers({
   resSearch: searchReducer
 });
 
-const middlewares = [thunk];
+// const middlewares = [thunk];
 
 const composeMiddlewares = compose(
-  applyMiddleware(...middlewares),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  applyMiddleware(thunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__
+    ? window.__REDUX_DEVTOOLS_EXTENSION__()
+    : f => f
 );
 
-if (process.env.NODE_ENV === "development") {
-  const logger = createLogger();
-  middlewares.push(logger);
-}
+// if (process.env.NODE_ENV === "development") {
+//   const logger = createLogger();
+//   middlewares.push(logger);
+// }
 
 const persistedState = localStorage.getItem("reduxState")
   ? JSON.parse(localStorage.getItem("reduxState"))
