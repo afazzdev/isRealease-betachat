@@ -1,13 +1,9 @@
 .page1 {
   width: 100%;
   height: 100%;
-  // background: #2f3760;
-  background: url(../../../containers/LandingPage/svgs/bgpage1.svg) no-repeat;
-  background-position: 0 -150px;
-  background-size: cover;
-  // background-attachment: fixed;
+  background: #2f3760;
   position: absolute;
-  z-index: 11;
+  z-index: 1;
   display: grid;
   // place-items: center;
   .h1 {
@@ -20,7 +16,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -130%);
+    transform: translate(-50%, -50%);
     div {
       font-family: "Poppins", sans-serif;
       &:nth-child(1) {

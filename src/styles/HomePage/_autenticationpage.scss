@@ -12,6 +12,8 @@
       flex: 1;
       min-height: 430px;
       padding: 3px;
+      border-radius: 0 100px 0 0;
+
       .card {
         box-sizing: border-box;
         background: none;
@@ -69,6 +71,31 @@
       min-width: 320px;
       display: grid;
       align-items: center;
+      border-radius: 0 0 0 100px;
+      position: relative;
+      z-index: 100;
+
+      &::before {
+        z-index: -100;
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: #2f3760;
+        height: 100px;
+        width: 100px;
+      }
+      &::after {
+        z-index: -100;
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: #e5e7e7;
+        height: 100px;
+        width: 100px;
+        border-radius: 0 0 0 100%;
+      }
       .greetings {
         // width: 310px;
 
@@ -115,6 +142,42 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .backgroundpage {
+    .container-slanted {
+      .autentication-form {
+        border-radius: 0 0 100px 0;
+      }
+      .chat-brand {
+        &::before {
+          z-index: -100;
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: #2f3760;
+          height: 100px;
+          width: 100px;
+        }
+        &::after {
+          z-index: -100;
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: #e5e7e7;
+          height: 100px;
+          width: 100px;
+          border-radius: 100% 0 0 0;
+        }
+        .greetings {
+          text-align: end;
         }
       }
     }

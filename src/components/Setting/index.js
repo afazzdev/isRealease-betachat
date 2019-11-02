@@ -64,6 +64,13 @@ class Setting extends React.Component {
       console.log(updatedData);
       this.props.update(updatedData);
     };
+
+    const handleKeyPress = e => {
+      if (e.charCode === 13) {
+        this.handleSubmit(e);
+      }
+    };
+
     const handleEdit = e => {
       e.preventDefault();
       if (!editable) {
@@ -78,8 +85,8 @@ class Setting extends React.Component {
     };
 
     const handleChangePin = e => {
-      this.setState({ password: e.toLowerCase() });
-      console.log(this.state.password);
+      this.setState({ password: e });
+      // console.log(this.state.password);
     };
 
     const getFiles = files => {
@@ -134,14 +141,6 @@ class Setting extends React.Component {
             />
             {editable && (
               <div className="profile-group">
-                {/* <input
-                  className="profile-button"
-                  type="file"
-                  id="files"
-                  name="files"
-                  accept="image/png, image/jpeg"
-                  onChange={handleChange}
-                />{" "} */}
                 <FileBase64
                   multiple={false}
                   onDone={getFiles}
@@ -150,7 +149,6 @@ class Setting extends React.Component {
                   id="files"
                   name="files"
                 />
-                {console.log("files:", files)}
                 <label htmlFor="files" className="profile-button">
                   Choose a photo
                 </label>
@@ -166,6 +164,7 @@ class Setting extends React.Component {
               name="username"
               onChange={handleChange}
               disabled={!editable}
+              onKeyUp={handleKeyPress}
             />
           </div>
           <div className="profile-group">
@@ -177,6 +176,7 @@ class Setting extends React.Component {
               name="phone"
               onChange={handleChange}
               disabled={!editable}
+              onKeyUp={handleKeyPress}
             />
           </div>
           <div className="profile-label">Password</div>
@@ -188,6 +188,7 @@ class Setting extends React.Component {
               name="password"
               onChange={handleChangePin}
               disabled={!editable}
+              onKeyUp={handleKeyPress}
               {...props}
             />
             {editable && (
@@ -205,6 +206,7 @@ class Setting extends React.Component {
                 className="profile-button"
                 type="submit"
                 disabled={password.length < 6 ? true : false}
+                onKeyUp={handleKeyPress}
               >
                 save
               </button>{" "}
