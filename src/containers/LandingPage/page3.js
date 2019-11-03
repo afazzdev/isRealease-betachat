@@ -43,7 +43,7 @@ class Page3 extends React.Component {
             zIndex: 10,
             position: "absolute",
             width: "100vw",
-            height: "15rem",
+            height: "16rem",
             top: 0,
             right: 0,
             padding: 0,

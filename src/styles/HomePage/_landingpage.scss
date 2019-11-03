@@ -61,17 +61,32 @@
       }
     }
     .tiga {
+      form.input-group {
+        transform: translateY(60px);
+        z-index: 1000;
+        button.input-button {
+          background-color: transparent;
+          &:hover {
+            background: #ebebeb;
+            color: #2f3760;
+            cursor: pointer;
+          }
+        }
+      }
       .wave1p3 {
-        width: 500px;
-        transform: translateX(10px);
+        width: 200vw;
+        height: 100%;
+        transform: translateY(-20px);
+
+        z-index: -1;
       }
       .wave2p3 {
-        width: 500px;
-        transform: translateX(10px);
+        width: 200vw;
+        transform: translateX(0);
       }
       .wave3p3 {
-        width: 500px;
-        transform: translateX(10px);
+        width: 200vw;
+        transform: translateX(0);
       }
     }
   }
