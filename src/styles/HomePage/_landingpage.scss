@@ -43,10 +43,11 @@
   }
 
   .footer {
-    height: 3rem;
+    height: 2rem;
+    font-size: 1.5rem;
     background: #252525;
     display: grid;
-    place-items: flex-end center;
+    place-items: center;
   }
 }
 
@@ -88,6 +89,9 @@
         width: 200vw;
         transform: translateX(0);
       }
+    }
+    .footer {
+      font-size: 1rem;
     }
   }
 }
