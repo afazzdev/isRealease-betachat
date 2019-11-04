@@ -1,5 +1,4 @@
 import { combineReducers, createStore, applyMiddleware, compose } from "redux";
-import { createLogger } from "redux-logger";
 
 import messagesReducer from "./redux/reducers/MessagesReducer";
 import loginReducer from "./redux/reducers/LoginReducer";
@@ -13,19 +12,12 @@ const createRootReducers = combineReducers({
   resSearch: searchReducer
 });
 
-// const middlewares = [thunk];
-
 const composeMiddlewares = compose(
   applyMiddleware(thunk),
   window.__REDUX_DEVTOOLS_EXTENSION__
     ? window.__REDUX_DEVTOOLS_EXTENSION__()
     : f => f
 );
-
-// if (process.env.NODE_ENV === "development") {
-//   const logger = createLogger();
-//   middlewares.push(logger);
-// }
 
 const persistedState = localStorage.getItem("reduxState")
   ? JSON.parse(localStorage.getItem("reduxState"))
